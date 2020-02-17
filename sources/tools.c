@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/17 15:37:38 by fprovolo         ###   ########.fr       */
+/*   Created: 2020/02/17 13:44:15 by fprovolo          #+#    #+#             */
+/*   Updated: 2020/02/17 14:05:43 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char **argv)
+void	terminate(char *message)
 {
-
-
-	if (argc > 1)
-		parse_array(argc, argv);
-	return (0);
+	ft_putendl(message);
+	exit(1);
 }

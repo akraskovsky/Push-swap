@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fprovolo <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/11 15:52:55 by fprovolo          #+#    #+#              #
-#    Updated: 2019/11/20 15:05:33 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/02/13 14:08:59 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,25 +71,39 @@ FUNCTIONS = ft_memset\
 			ft_lstmap\
 			get_next_line\
 
-SRC = $(patsubst %,%.c,$(FUNCTIONS))
-OBJ = $(patsubst %,%.o,$(FUNCTIONS))
+PF_FILES = ft_printf ft_printf_fd parse_format get_argument get_int \
+			get_unsigned get_string get_character tools set_colors get_floats \
+			f_dealer f_flag f_get_binary f_nan_inf f_normalize f_rounding \
+			f_tools_mant f_tools_zero f_tools ft_atoi_base f_long_e f_long_g
+
+SRC_PATH = ./sources/
+OBJ_PATH = ./objects/
+INC_PATH = ./includes/
+SRC = $(addprefix $(SRC_PATH), $(patsubst %,%.c,$(FUNCTIONS))) \
+		$(addprefix $(SRC_PATH), $(patsubst %,%.c,$(PF_FILES)))
+OBJ = $(addprefix $(OBJ_PATH), $(patsubst %,%.o,$(FUNCTIONS))) \
+		$(addprefix $(OBJ_PATH), $(patsubst %,%.o,$(PF_FILES)))
+INCLUDES = -I $(INC_PATH)
 CFLAGS = -Wall -Wextra -Werror
 
 .PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ_PATH) $(OBJ)
 		ar rcs $(NAME) $(OBJ)
 		ranlib $(NAME)
 
-%.o: %.c $(NAME).h
-		gcc $(CFLAGS) -I -o $@ -c $<
+$(OBJ_PATH):
+		mkdir -p $(OBJ_PATH)
+
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+		gcc $(CFLAGS) $(INCLUDES) -c $< -o $@ 
 
 clean:
-		rm -f $(OBJ)
+		/bin/rm -rf $(OBJ_PATH)
 
 fclean: clean
-		rm -f $(NAME)
+		/bin/rm -f $(NAME)
 
 re:	fclean all
