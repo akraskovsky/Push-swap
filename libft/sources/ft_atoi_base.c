@@ -3,20 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmalik <jmalik@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/29 14:58:51 by jmalik            #+#    #+#             */
-/*   Updated: 2020/02/03 19:15:15 by jmalik           ###   ########.fr       */
+/*   Updated: 2020/02/19 13:59:50 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+/*
 static int		ft_isspace(char c)
 {
 	return (c == '\n' || c == '\t' || c == '\r' || c == '\v' || c == '\f' || \
 			c == ' ');
 }
+*/
 
 static int		ft_base(char c, int base)
 {

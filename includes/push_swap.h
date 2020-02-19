@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 15:57:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/18 18:19:03 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:07:01 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,9 @@ typedef struct			s_cmd
 }						t_cmd;
 
 int     main(int argc, char **argv);
-int     parse_array(int argc, char **argv);
+int     parse_array(int argc, char **argv, t_stk *stk);
 //void	parse_word(char *str, t_stk *stk);
 void	terminate(char *message);
+t_stk	*init_stk();
 void	print_stack(t_stk *stk);
 #endif

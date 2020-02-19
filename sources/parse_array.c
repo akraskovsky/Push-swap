@@ -6,23 +6,11 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 17:12:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/18 18:19:03 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/19 16:17:32 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static t_stk	*init_stk()
-{
-	t_stk	*stk;
-
-	if (!(stk = (t_stk *)malloc(sizeof(t_stk))))
-		return (NULL);
-	stk->a = NULL;
-	stk->b = NULL;
-	stk->len = 0;
-	return (stk);
-}
 
 static void		add_to_end_a(int num, t_stk *stk)
 {
@@ -48,11 +36,10 @@ static void		add_to_end_a(int num, t_stk *stk)
 		stk->a->prev = new;
 	}
 	(stk->len)++;
-	ft_printf("len=%d, arg=%d\n", stk->len, num);
 	return ;
 }
 
-static void		parse_word(char *str, t_stk *stk)
+static char		*parse_word(char *str, t_stk *stk)
 {
 	int			sign;
 	long long	num;
@@ -61,7 +48,7 @@ static void		parse_word(char *str, t_stk *stk)
 	sign = (*str == '-') ? -1 : 1;
 	if ((*str == '-' || *str == '+') && ft_isdigit(str[1]))
 		str++;
-	while (*str != '\0')
+	while (*str != '\0' && !ft_isspace(*str))
 	{
 		if (!ft_isdigit(*str))
 			terminate(FT_ARG_ERR);
@@ -74,9 +61,39 @@ static void		parse_word(char *str, t_stk *stk)
 	if (num > __INT_MAX__ || num < -__INT_MAX__ - 1)
 		terminate(FT_ARG_ERR);
 	add_to_end_a((int)num, stk);
-	return ;
+	return (str);
 }
 
+int     parse_array(int argc, char **argv, t_stk *stk)
+{
+	int		i;
+	int		found;
+	char	*ptr;
+	
+	i = 1;
+	while (i < argc)
+	{
+		ptr = argv[i];
+		found = 0;
+		while (*ptr != '\0')
+		{
+			while (ft_isspace(*ptr))
+				ptr++;
+			if (*ptr != '\0')
+			{
+				found = 1;
+				ptr = parse_word(ptr, stk);
+			}
+		}
+		if (!found)
+			terminate(FT_ARG_ERR);
+		i++;
+	}
+	print_stack(stk);
+	return (0);
+}
+
+/*
 int     parse_array(int argc, char **argv)
 {
 	char	**words;
@@ -98,10 +115,10 @@ int     parse_array(int argc, char **argv)
 		i = 1;
 		while (i < argc)
 		{
-			ft_printf("i=%d\n", i);
 			parse_word(argv[i++], stk);
 		}
 	}
 	print_stack(stk);
 	return (0);
 }
+*/

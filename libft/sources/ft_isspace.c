@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/19 16:04:38 by fprovolo         ###   ########.fr       */
+/*   Created: 2020/02/19 13:40:17 by fprovolo          #+#    #+#             */
+/*   Updated: 2020/02/19 13:48:17 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+int	ft_isspace(char c)
 {
-	t_stk	*stk;
-
-	if (argc < 2)
-		return (0);
-	if (!(stk = init_stk()))
-		terminate(FT_MEM_ERR);
-	parse_array(argc, argv, stk);
+	if (c == '\t' || c == '\n' || c == '\v' || c ==  '\f' || c == '\r'
+			|| c == ' ')
+		return (1);
 	return (0);
 }

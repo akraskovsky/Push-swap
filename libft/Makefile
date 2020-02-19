@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/11 15:52:55 by fprovolo          #+#    #+#              #
-#    Updated: 2020/02/13 14:08:59 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/02/19 13:46:16 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ FUNCTIONS = ft_memset\
 			ft_isalnum\
 			ft_isascii\
 			ft_isprint\
+			ft_isspace\
 			ft_toupper\
 			ft_tolower\
 			ft_atoi\
