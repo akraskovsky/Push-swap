@@ -6,11 +6,30 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 17:12:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/19 16:17:32 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/19 20:31:11 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void		check_duplicate(int num, t_stack *stk)
+{
+	t_stack		*ptr;
+
+	if (stk != NULL)
+	{
+		if (num == stk->num)
+			terminate(FT_ARG_ERR);
+		ptr = stk->next;
+		while (ptr != stk)
+		{
+			if (num == ptr->num)
+				terminate(FT_ARG_ERR);
+			ptr = ptr->next;
+		}
+	}
+	return ;
+}
 
 static void		add_to_end_a(int num, t_stk *stk)
 {
@@ -60,6 +79,7 @@ static char		*parse_word(char *str, t_stk *stk)
 	num *= sign;
 	if (num > __INT_MAX__ || num < -__INT_MAX__ - 1)
 		terminate(FT_ARG_ERR);
+	check_duplicate(num, stk->a);
 	add_to_end_a((int)num, stk);
 	return (str);
 }
@@ -92,33 +112,3 @@ int     parse_array(int argc, char **argv, t_stk *stk)
 	print_stack(stk);
 	return (0);
 }
-
-/*
-int     parse_array(int argc, char **argv)
-{
-	char	**words;
-	int		i;
-	t_stk	*stk;
-	
-	if (!(stk = init_stk()))
-		return (0);
-	if (argc == 2)
-	{
-		if (!(words = ft_strsplit(argv[1], ' ')))
-			terminate(FT_MEM_ERR);
-		i = 0;
-		while (words[i])
-			parse_word(words[i++], stk);
-	}
-	else if (argc > 2)
-	{
-		i = 1;
-		while (i < argc)
-		{
-			parse_word(argv[i++], stk);
-		}
-	}
-	print_stack(stk);
-	return (0);
-}
-*/
