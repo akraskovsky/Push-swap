@@ -6,13 +6,13 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/13 15:07:48 by fprovolo          #+#    #+#              #
-#    Updated: 2020/02/17 13:47:01 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/02/20 18:17:00 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME1 = push_swap
 NAME2 = checker
-FILES = parse_array tools
+FILES = parse_arguments tools commands stack_push_pull
 
 LFT_PATH = ./libft/
 SRC_PATH = ./sources/
@@ -33,10 +33,13 @@ OBJ2 = $(addprefix $(OBJ_PATH), $(addsuffix .o, $(NAME2)))
 
 LIBFT = $(LFT_PATH)libft.a
 
-all: $(NAME1)
+all: $(NAME1) $(NAME2)
 
 $(NAME1): $(LIBFT) $(OBJ_PATH) $(OBJ) $(OBJ1)
 	gcc $(CFLAGS) $(IFLAGS) $(LFLAGS) $(OBJ) $(OBJ1) -o $(NAME1)
+
+$(NAME2): $(LIBFT) $(OBJ_PATH) $(OBJ) $(OBJ2)
+	gcc $(CFLAGS) $(IFLAGS) $(LFLAGS) $(OBJ) $(OBJ2) -o $(NAME2)
 
 $(LIBFT):
 	make -C $(LFT_PATH)

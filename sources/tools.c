@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:44:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/19 16:34:15 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/20 10:10:36 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	terminate(char *message)
 {
-	ft_putendl(message);
+	ft_printf_fd(1, "{RED}%s{OFF}\n", message);
 	exit(1);
 }
 
@@ -35,6 +35,8 @@ void	print_stack(t_stk *stk)
 	t_stack	*ptr_a;
 	t_stack	*ptr_b;
 
+	if (!stk)
+		return ;
 	ft_printf("\n%16s%26s\n", "Stack A:", "Stack B:");
 	ft_printf("%16s%26s\n", "--------", "--------");
 	ptr_a = stk->a;

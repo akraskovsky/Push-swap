@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 17:12:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/19 20:31:11 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/20 10:22:57 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,29 +84,26 @@ static char		*parse_word(char *str, t_stk *stk)
 	return (str);
 }
 
-int     parse_array(int argc, char **argv, t_stk *stk)
+int     parse_arguments(int argc, char **argv, t_stk *stk)
 {
 	int		i;
-	int		found;
 	char	*ptr;
 	
 	i = 1;
 	while (i < argc)
 	{
 		ptr = argv[i];
-		found = 0;
+		while (ft_isspace(*ptr))
+			ptr++;
+		if (*ptr == '\0')
+			terminate(FT_ARG_ERR);
 		while (*ptr != '\0')
 		{
 			while (ft_isspace(*ptr))
 				ptr++;
 			if (*ptr != '\0')
-			{
-				found = 1;
 				ptr = parse_word(ptr, stk);
-			}
 		}
-		if (!found)
-			terminate(FT_ARG_ERR);
 		i++;
 	}
 	print_stack(stk);
