@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/20 10:22:57 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/21 18:30:23 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,7 @@ int		main(int argc, char **argv)
 	if (!(stk = init_stk()))
 		terminate(FT_MEM_ERR);
 	parse_arguments(argc, argv, stk);
+	ft_printf("\nlen = %d\n", sorted_len(stk->a));
+	print_stack(stk);
 	return (0);
 }

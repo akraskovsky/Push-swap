@@ -6,13 +6,17 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/13 15:07:48 by fprovolo          #+#    #+#              #
-#    Updated: 2020/02/20 18:17:00 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/02/21 17:13:58 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME1 = push_swap
 NAME2 = checker
-FILES = parse_arguments tools commands stack_push_pull
+FILES = parse_arguments\
+		tools\
+		commands\
+		stack_push_pull\
+		sort
 
 LFT_PATH = ./libft/
 SRC_PATH = ./sources/

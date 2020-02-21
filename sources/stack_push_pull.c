@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 18:15:26 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/20 18:17:00 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/21 15:19:31 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	push_a(t_stack *new, t_stk *stk)
 	{
 		stk->a->prev->next = new;
 		new->prev = stk->a->prev;
-		stk->a->next->prev = new;
-		new->next = stk->a->next;
+		stk->a->prev = new;
+		new->next = stk->a;
 		stk->a = new;
 	}
 	return ;
@@ -43,8 +43,8 @@ void	push_b(t_stack *new, t_stk *stk)
 	{
 		stk->b->prev->next = new;
 		new->prev = stk->b->prev;
-		stk->b->next->prev = new;
-		new->next = stk->b->next;
+		stk->b->prev = new;
+		new->next = stk->b;
 		stk->b = new;
 	}
 	return ;
