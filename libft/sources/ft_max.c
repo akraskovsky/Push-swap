@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/25 12:58:41 by fprovolo         ###   ########.fr       */
+/*   Created: 2020/02/25 15:34:47 by fprovolo          #+#    #+#             */
+/*   Updated: 2020/02/25 15:36:38 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-int		main(int argc, char **argv)
+int		ft_max(int a, int b)
 {
-	t_stk	*stk;
-
-	if (argc < 2)
-		return (0);
-	if (!(stk = init_stk()))
-		terminate(FT_MEM_ERR);
-	parse_arguments(argc, argv, stk);
-	trim_nonsorted(stk);
-	
-	ft_printf("\nlen = %d\n", sorted_len(stk->a));
-	print_stack(stk);
-	return (0);
+	if (a > b)
+		return (a);
+	else
+		return (b);
 }

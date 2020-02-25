@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 18:15:26 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/21 15:19:31 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:19:56 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	push_a(t_stack *new, t_stk *stk)
 		new->next = new;
 		new->prev = new;
 		stk->a = new;
+		stk->len_a++;
 	}
 	else if (new)
 	{
@@ -27,6 +28,7 @@ void	push_a(t_stack *new, t_stk *stk)
 		stk->a->prev = new;
 		new->next = stk->a;
 		stk->a = new;
+		stk->len_a++;
 	}
 	return ;
 }
@@ -38,6 +40,7 @@ void	push_b(t_stack *new, t_stk *stk)
 		new->next = new;
 		new->prev = new;
 		stk->b = new;
+		stk->len_b++;
 	}
 	else if (new)
 	{
@@ -46,6 +49,7 @@ void	push_b(t_stack *new, t_stk *stk)
 		stk->b->prev = new;
 		new->next = stk->b;
 		stk->b = new;
+		stk->len_b++;
 	}
 	return ;
 }
@@ -65,6 +69,7 @@ t_stack	*pull_a(t_stk *stk)
 		stk->a->next->prev = stk->a->prev;
 		stk->a = stk->a->next;
 	}
+	stk->len_a--;
 	return (elem);
 }
 
@@ -83,5 +88,6 @@ t_stack	*pull_b(t_stk *stk)
 		stk->b->next->prev = stk->b->prev;
 		stk->b = stk->b->next;
 	}
+	stk->len_b--;
 	return (elem);
 }

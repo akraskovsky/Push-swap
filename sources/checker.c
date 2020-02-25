@@ -6,11 +6,40 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/21 16:04:05 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/25 18:21:26 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	exec_command(t_stk *stk, char *cmd)
+{
+	if (ft_strequ(cmd, "sa"))
+		cmd_swap(stk->a, 0);
+	else if (ft_strequ(cmd, "sb"))
+		cmd_swap(stk->b, 0);
+	else if (ft_strequ(cmd, "ss"))
+		cmd_ss(stk, 0);
+	else if (ft_strequ(cmd, "pa"))
+		cmd_pa(stk, 0);
+	else if (ft_strequ(cmd, "pb"))
+		cmd_pb(stk, 0);
+	else if (ft_strequ(cmd, "ra"))
+		cmd_ra(stk, 0);
+	else if (ft_strequ(cmd, "rb"))
+		cmd_rb(stk, 0);
+	else if (ft_strequ(cmd, "rr"))
+		cmd_rr(stk, 0);
+	else if (ft_strequ(cmd, "rra"))
+		cmd_rra(stk, 0);
+	else if (ft_strequ(cmd, "rrb"))
+		cmd_rrb(stk, 0);
+	else if (ft_strequ(cmd, "rrr"))
+		cmd_rrr(stk, 0);
+	else
+		terminate(FT_OPER);
+	return ;
+}
 
 void	run_commands(t_stk *stk)
 {

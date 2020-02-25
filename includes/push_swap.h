@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 15:57:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/21 18:29:26 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/25 18:21:26 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ typedef struct s_stk
 {
 	t_stack				*a;
 	t_stack				*b;
-	int					len;
+	int					len_a;
+	int					len_b;
 }						t_stk;
 
 typedef struct			s_cmd
@@ -56,10 +57,17 @@ void	push_a(t_stack *new, t_stk *stk);
 void	push_b(t_stack *new, t_stk *stk);
 t_stack	*pull_a(t_stk *stk);
 t_stack	*pull_b(t_stk *stk);
-void	cmd_swap(t_stack *stk);
-void	cmd_swap_both(t_stk *stk);
-void	cmd_rr(t_stk *stk);
-void	cmd_rrr(t_stk *stk);
+void	cmd_swap(t_stack *stk, int write);
+void	cmd_ss(t_stk *stk, int write);
+void	cmd_pa(t_stk *stk, int write);
+void	cmd_pb(t_stk *stk, int write);
+void	cmd_ra(t_stk *stk, int write);
+void	cmd_rb(t_stk *stk, int write);
+void	cmd_rr(t_stk *stk, int write);
+void	cmd_rra(t_stk *stk, int write);
+void	cmd_rrb(t_stk *stk, int write);
+void	cmd_rrr(t_stk *stk, int write);
 size_t	sorted_len(t_stack *start);
+void	trim_nonsorted(t_stk *stk);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:44:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/20 10:10:36 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/25 15:23:14 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_stk	*init_stk()
 		return (NULL);
 	stk->a = NULL;
 	stk->b = NULL;
-	stk->len = 0;
+	stk->len_a = 0;
+	stk->len_b = 0;
 	return (stk);
 }
 
@@ -74,5 +75,6 @@ void	print_stack(t_stk *stk)
 			ft_printf("%26s", " ");
 		ft_printf("\n");
 	}
+	ft_printf("length A: %d,                length B: %d\n\n", stk->len_a, stk->len_b);
 	return ;
 }
