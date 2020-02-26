@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   commands1.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/26 21:55:41 by fprovolo         ###   ########.fr       */
+/*   Created: 2020/02/20 14:17:17 by fprovolo          #+#    #+#             */
+/*   Updated: 2020/02/26 14:58:49 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		main(int argc, char **argv)
+void	cmd_ra(t_stk *stk, int wr)
 {
-	t_stk	*stk;
+	stk->a = (stk->a) ? stk->a->next : stk->a;
+	if (wr)
+		write(1, "ra\n", 3);
+	return ;
+}
 
-	if (argc < 2)
-		return (0);
-	if (!(stk = init_stk()))
-		terminate(FT_MEM_ERR);
-	parse_arguments(argc, argv, stk);
-	if (check_sort(stk))
-		return (0);
-	if (stk->len_a <= 5)
-		sort_short(stk);
-	else
-		sort_main(stk);
-	print_stack(stk);
-	return (0);
+void	cmd_rb(t_stk *stk, int wr)
+{
+	stk->b = (stk->b) ? stk->b->next : stk->b;
+	if (wr)
+		write(1, "rb\n", 3);
+	return ;
+}
+
+void	cmd_rr(t_stk *stk, int wr)
+{
+	stk->a = (stk->a) ? stk->a->next : stk->a;
+	stk->b = (stk->b) ? stk->b->next : stk->b;
+	if (wr)
+		write(1, "rr\n", 3);
+	return ;
 }

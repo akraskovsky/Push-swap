@@ -6,56 +6,55 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 14:17:17 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/25 18:12:38 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/26 15:03:39 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	cmd_swap(t_stack *stk, int write)
+void	cmd_sa(t_stk *stk, int wr)
 {
 	int	num;
 	int	index;
 	
-	if (stk && stk->next != stk)
+	if (stk->a && stk->a->next != stk->a)
 	{
-		num = stk->num;
-		index = stk->index;
-		stk->num = stk->next->num;
-		stk->index = stk->next->index;
-		stk->next->num = num;
-		stk->next->index = index;
+		num = stk->a->num;
+		index = stk->a->index;
+		stk->a->num = stk->a->next->num;
+		stk->a->index = stk->a->next->index;
+		stk->a->next->num = num;
+		stk->a->next->index = index;
 	}
-}
-
-void	cmd_ss(t_stk *stk, int write)
-{
-	cmd_swap(stk->a, write);
-	cmd_swap(stk->b, write);
+	if (wr)
+		write(1, "sa\n", 3);
 	return ;
 }
 
-void	cmd_ra(t_stk *stk, int write)
+void	cmd_sb(t_stk *stk, int wr)
 {
-	stk->a = (stk->a) ? stk->a->next : stk->a;
-	if (write)
-		add_cmd("ra");
+	int	num;
+	int	index;
+	
+	if (stk->b && stk->b->next != stk->b)
+	{
+		num = stk->b->num;
+		index = stk->b->index;
+		stk->b->num = stk->b->next->num;
+		stk->b->index = stk->b->next->index;
+		stk->b->next->num = num;
+		stk->b->next->index = index;
+	}
+	if (wr)
+		write(1, "sb\n", 3);
 	return ;
 }
 
-void	cmd_rb(t_stk *stk, int write)
+void	cmd_ss(t_stk *stk, int wr)
 {
-	stk->b = (stk->b) ? stk->b->next : stk->b;
-	if (write)
-		add_cmd("rb");
-	return ;
-}
-
-void	cmd_rr(t_stk *stk, int write)
-{
-	stk->a = (stk->a) ? stk->a->next : stk->a;
-	stk->b = (stk->b) ? stk->b->next : stk->b;
-	if (write)
-		add_cmd("rr");
+	cmd_sa(stk, 0);
+	cmd_sb(stk, 0);
+	if (wr)
+		write(1, "ss\n", 3);
 	return ;
 }

@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/25 18:21:26 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/26 17:30:38 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	exec_command(t_stk *stk, char *cmd)
 {
 	if (ft_strequ(cmd, "sa"))
-		cmd_swap(stk->a, 0);
+		cmd_sa(stk, 0);
 	else if (ft_strequ(cmd, "sb"))
-		cmd_swap(stk->b, 0);
+		cmd_sb(stk, 0);
 	else if (ft_strequ(cmd, "ss"))
 		cmd_ss(stk, 0);
 	else if (ft_strequ(cmd, "pa"))
@@ -53,22 +53,6 @@ void	run_commands(t_stk *stk)
 		print_stack(stk);
 	}
 	return ;
-}
-
-int		check_sort(t_stk *stk)
-{
-	t_stack	*ptr;
-
-	if (stk->b)
-		return (0);
-	ptr = stk->a->next;
-	while (ptr != stk->a)
-	{
-		if (ptr->num < ptr->prev->num)
-			return (0);
-		ptr = ptr->next;
-	}
-	return (1);
 }
 
 int		main(int argc, char **argv)

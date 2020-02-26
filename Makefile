@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/13 15:07:48 by fprovolo          #+#    #+#              #
-#    Updated: 2020/02/25 18:21:26 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/02/26 21:51:51 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,12 @@ NAME2 = checker
 FILES = parse_arguments\
 		tools\
 		commands\
+		commands1\
 		commands2\
 		stack_push_pull\
-		sort
+		sort\
+		sort_short\
+		sort_main\
 
 LFT_PATH = ./libft/
 SRC_PATH = ./sources/

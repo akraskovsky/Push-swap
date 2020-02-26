@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 15:57:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/25 18:21:26 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/26 21:51:51 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,26 @@ void	push_a(t_stack *new, t_stk *stk);
 void	push_b(t_stack *new, t_stk *stk);
 t_stack	*pull_a(t_stk *stk);
 t_stack	*pull_b(t_stk *stk);
-void	cmd_swap(t_stack *stk, int write);
-void	cmd_ss(t_stk *stk, int write);
-void	cmd_pa(t_stk *stk, int write);
-void	cmd_pb(t_stk *stk, int write);
-void	cmd_ra(t_stk *stk, int write);
-void	cmd_rb(t_stk *stk, int write);
-void	cmd_rr(t_stk *stk, int write);
-void	cmd_rra(t_stk *stk, int write);
-void	cmd_rrb(t_stk *stk, int write);
-void	cmd_rrr(t_stk *stk, int write);
+void	cmd_sa(t_stk *stk, int wr);
+void	cmd_sb(t_stk *stk, int wr);
+void	cmd_ss(t_stk *stk, int wr);
+void	cmd_pa(t_stk *stk, int wr);
+void	cmd_pb(t_stk *stk, int wr);
+void	cmd_ra(t_stk *stk, int wr);
+void	cmd_rb(t_stk *stk, int wr);
+void	cmd_rr(t_stk *stk, int wr);
+void	cmd_rra(t_stk *stk, int wr);
+void	cmd_rrb(t_stk *stk, int wr);
+void	cmd_rrr(t_stk *stk, int wr);
+int		check_sort(t_stk *stk);
 size_t	sorted_len(t_stack *start);
+t_stack	*longest_sorted(t_stack *stk);
+void	mark_to_push(t_stack *start);
 void	trim_nonsorted(t_stk *stk);
+void	sort_short(t_stk *stk);
+void	sort_main(t_stk *stk);
+void	sort_3(t_stk *stk);
+void	sort_4(t_stk *stk);
+void	sort_5(t_stk *stk);
 
 #endif
