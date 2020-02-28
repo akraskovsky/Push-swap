@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 15:57:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/26 21:51:51 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/28 16:31:46 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,6 @@ void	sort_main(t_stk *stk);
 void	sort_3(t_stk *stk);
 void	sort_4(t_stk *stk);
 void	sort_5(t_stk *stk);
+int		find_match(t_stk *stk, int num);
 
 #endif

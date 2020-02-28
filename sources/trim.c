@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   trim.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 17:12:01 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/26 21:55:41 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/28 18:54:10 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ void		trim_nonsorted(t_stk *stk)
 	int		count;
 
 	mark_to_push(longest_sorted(stk->a));
-//	print_stack(stk);
 	count = stk->len_a;
 	while (count > 0)
 	{
@@ -133,6 +132,5 @@ void		trim_nonsorted(t_stk *stk)
 			count--;
 		}
 	}
-	print_stack(stk);
 	return ;
 }

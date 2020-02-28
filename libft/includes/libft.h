@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/09 18:25:54 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/25 15:37:58 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/02/28 18:32:00 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,6 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int				get_next_line(const int fd, char **line);
 int				ft_max(int a, int b);
+int				ft_min(int a, int b);
 
 #endif

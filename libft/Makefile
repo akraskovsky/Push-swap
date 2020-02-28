@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/11 15:52:55 by fprovolo          #+#    #+#              #
-#    Updated: 2020/02/25 15:37:58 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/02/28 18:32:00 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,6 +71,7 @@ FUNCTIONS = ft_memset\
 			ft_lstiter\
 			ft_lstmap\
 			ft_max\
+			ft_min\
 			get_next_line\
 
 PF_FILES = ft_printf ft_printf_fd parse_format get_argument get_int \

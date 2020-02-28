@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/13 15:07:48 by fprovolo          #+#    #+#              #
-#    Updated: 2020/02/26 21:51:51 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/02/27 17:02:03 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FILES = parse_arguments\
 		commands1\
 		commands2\
 		stack_push_pull\
-		sort\
+		trim\
 		sort_short\
 		sort_main\
 
