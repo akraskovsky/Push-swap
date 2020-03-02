@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/13 15:07:48 by fprovolo          #+#    #+#              #
-#    Updated: 2020/02/27 17:02:03 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/03/02 16:58:46 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ FILES = parse_arguments\
 		trim\
 		sort_short\
 		sort_main\
+		push_to_a\
 
 LFT_PATH = ./libft/
 SRC_PATH = ./sources/

@@ -6,16 +6,16 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 20:31:04 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/28 19:31:34 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/02 18:32:49 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		find_match(t_stk *stk, int num)
+size_t		find_match(t_stk *stk, int num)
 {
-	int		shift_a;
-	t_stack	*ptr;
+	size_t		shift_a;
+	t_stack		*ptr;
 
 	shift_a = 0;
 	ptr = stk->a;
@@ -30,34 +30,73 @@ int		find_match(t_stk *stk, int num)
 	return (shift_a);
 }
 
-int		calc_commands(t_stk *stk, int shift_a, int shift_b)
+size_t		calc_commands(t_stk *stk, size_t shift_a, size_t shift_b)
 {
-	int		count;
+	size_t		count;
 
-	count = ft_min(ft_max(shift_a, shift_b), ft_max(stk->len_a - shift_a, stk->len_b - shift_b));
+	count = ft_min(ft_max(shift_a, shift_b), \
+			ft_max(stk->len_a - shift_a, stk->len_b - shift_b));
 	count = ft_min(count, (stk->len_a - shift_a) + shift_b);
 	count = ft_min(count, (stk->len_b - shift_b) + shift_a);
 	return (count);
 }
 
-void	sort_main(t_stk *stk)
+void		push_to_a(t_stk *stk, t_shift shift)
 {
-	int		shift_b;
-	int		count;
-	int		min_count;
-	t_stack	*ptr;
+	if (ft_max(shift.a, shift.b) <= ft_max(stk->len_a - shift.a, stk->len_b - shift.b) &&
+			ft_max(shift.a, shift.b) <= ft_min(stk->len_a - shift.a + shift.b, shift.a + stk->len_b - shift.b))
+		move_up_up(stk, shift);
+	else if (ft_max(stk->len_a - shift.a, stk->len_b - shift.b) <= \
+			ft_min(stk->len_a - shift.a + shift.b, shift.a + stk->len_b - shift.b))
+		move_down_down(stk, shift);
+	else if (stk->len_a - shift.a + shift.b <= shift.a + stk->len_b - shift.b)
+		move_down_up(stk, shift);
+	else
+		move_up_down(stk, shift);
+	return ;
+}
 
-	trim_nonsorted(stk);
-	print_stack(stk);
-	min_count = calc_commands(stk, find_match(stk, ptr->num), 0);
+t_shift		best_to_return(t_stk *stk)
+{
+	size_t		shift_b;
+	t_shift		best;
+	size_t		count;
+	size_t		min_count;
+	t_stack		*ptr;	
+
+	min_count = calc_commands(stk, find_match(stk, stk->b->num), 0);
+	best.b = 0;
+	best.a = find_match(stk, stk->b->num);
 	shift_b = 1;
-	ptr = stk->b;
+	ptr = stk->b->next;
 	while (shift_b < stk->len_b)
 	{
-		count = calc_commands(stk, find_match(stk, ptr->num), shift_b);
-		ft_printf("num=%d shift_a=%d, shift_b=%d, count=%d\n", ptr->num, find_match(stk, ptr->num), shift_b, count);
+		if ((count = calc_commands(stk, find_match(stk, ptr->num), shift_b)) \
+				< min_count)
+		{
+			min_count = count;
+			best.b = shift_b;
+			best.a = find_match(stk, ptr->num);
+		}
+//		ft_printf("num=%d shift_a=%d, shift_b=%d, count=%d\n", ptr->num, find_match(stk, ptr->num), shift_b, count);
 		ptr = ptr->next;
 		shift_b++;
 	}
+	return (best);
+}
+
+void		sort_main(t_stk *stk)
+{
+	t_shift	shift;
+
+	trim_nonsorted(stk);
+//	print_stack(stk);
+	while (stk->b)
+	{
+		shift = best_to_return(stk);
+		push_to_a(stk, shift);
+//		print_stack(stk);
+	}
+	stk_norm(stk);
 	return ;
 }

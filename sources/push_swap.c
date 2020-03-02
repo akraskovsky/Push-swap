@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/26 21:55:41 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/02 19:48:47 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ int		main(int argc, char **argv)
 		sort_short(stk);
 	else
 		sort_main(stk);
-	print_stack(stk);
 	return (0);
 }
