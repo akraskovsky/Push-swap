@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/03 16:43:59 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/03 21:00:33 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,13 @@ int		main(int argc, char **argv)
 		stk->visual = 1;
 		argv++;
 		argc--;
+		init_visual(stk);
 	}
 	parse_arguments(argc, argv, stk);
-	if (stk->visual)
-		print_stack(stk);
 	run_commands(stk);
-	if (stk->visual)
-		print_stack(stk);
 	ft_putendl((check_sort(stk)) ? "\x1B[32mOK" : "\x1B[31mKO");
+	if (stk->visual == 1)
+		mlx_loop(stk->mlx);
 	free_stk(stk);
 	return (0);
 }

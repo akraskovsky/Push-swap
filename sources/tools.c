@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:44:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/03 16:28:03 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/03 20:03:52 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ t_stk	*init_stk()
 	stk->len_a = 0;
 	stk->len_b = 0;
 	stk->visual = 0;
+	stk->mlx = NULL;
+	stk->win = NULL;
 	return (stk);
 }
 
