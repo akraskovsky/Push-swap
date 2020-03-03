@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/02 19:48:47 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/03 16:22:21 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (!(stk = init_stk()))
-		terminate(FT_MEM_ERR);
+		terminate(stk, FT_MEM_ERR);
 	parse_arguments(argc, argv, stk);
 	if (check_sort(stk))
 		return (0);
@@ -27,5 +27,6 @@ int		main(int argc, char **argv)
 		sort_short(stk);
 	else
 		sort_main(stk);
+	free_stk(stk);
 	return (0);
 }

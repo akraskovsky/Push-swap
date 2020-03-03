@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/02 20:49:16 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/03 16:43:59 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	exec_command(t_stk *stk, char *cmd)
 	else if (ft_strequ(cmd, "rrr"))
 		cmd_rrr(stk, 0);
 	else
-		terminate(FT_OPER);
+		terminate(stk, FT_OPER);
 	return ;
 }
 
@@ -52,6 +52,7 @@ void	run_commands(t_stk *stk)
 		free(cmd);
 //		print_stack(stk);
 	}
+	free(cmd);
 	return ;
 }
 
@@ -62,7 +63,7 @@ int		main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (!(stk = init_stk()))
-		terminate(FT_MEM_ERR);
+		terminate(stk, FT_MEM_ERR);
 	if (ft_strequ(argv[1], "-v"))
 	{
 		stk->visual = 1;
@@ -76,5 +77,6 @@ int		main(int argc, char **argv)
 	if (stk->visual)
 		print_stack(stk);
 	ft_putendl((check_sort(stk)) ? "\x1B[32mOK" : "\x1B[31mKO");
+	free_stk(stk);
 	return (0);
 }

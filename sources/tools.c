@@ -6,15 +6,16 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:44:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/02 20:19:27 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/03 16:28:03 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	terminate(char *message)
+void	terminate(t_stk *stk, char *message)
 {
-	ft_printf_fd(1, "{RED}%s{OFF}\n", message);
+	ft_printf_fd(2, "{RED}%s{OFF}\n", message);
+	free_stk(stk);
 	exit(1);
 }
 
@@ -30,6 +31,33 @@ t_stk	*init_stk()
 	stk->len_b = 0;
 	stk->visual = 0;
 	return (stk);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_stack		*tmp;
+
+	while (stack != stack->next)
+	{
+		tmp = stack;
+		stack->prev->next = stack->next;
+		stack->next->prev = stack->prev;
+		stack = stack->next;
+		free(tmp);
+	}
+	free(stack);
+}
+
+void	free_stk(t_stk *stk)
+{
+	if (stk)
+	{
+		if (stk->a)
+			free_stack(stk->a);
+		if (stk->b)
+			free_stack(stk->b);
+		free(stk);
+	}
 }
 
 void	print_stack(t_stk *stk)

@@ -6,25 +6,25 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 17:12:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/02 20:49:16 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/03 16:18:28 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void		check_duplicate(int num, t_stack *stk)
+static void		check_duplicate(int num, t_stk *stk)
 {
 	t_stack		*ptr;
 
-	if (stk != NULL)
+	if (stk != NULL && stk->a != NULL)
 	{
-		if (num == stk->num)
-			terminate(FT_ARG_ERR);
-		ptr = stk->next;
-		while (ptr != stk)
+		if (num == stk->a->num)
+			terminate(stk, FT_ARG_ERR);
+		ptr = stk->a->next;
+		while (ptr != stk->a)
 		{
 			if (num == ptr->num)
-				terminate(FT_ARG_ERR);
+				terminate(stk, FT_ARG_ERR);
 			ptr = ptr->next;
 		}
 	}
@@ -37,7 +37,7 @@ static void		add_to_end_a(int num, t_stk *stk)
 	t_stack		*last;
 
 	if (!(new = (t_stack *)malloc(sizeof(t_stack))))
-		terminate(FT_MEM_ERR);
+		terminate(stk, FT_MEM_ERR);
 	new->num = num;
 	new->index = 0;
 	if (stk->a == NULL)
@@ -70,16 +70,16 @@ static char		*parse_word(char *str, t_stk *stk)
 	while (*str != '\0' && !ft_isspace(*str))
 	{
 		if (!ft_isdigit(*str))
-			terminate(FT_ARG_ERR);
+			terminate(stk, FT_ARG_ERR);
 		num = num * 10 + (*str - '0');
 		if (num - 1 > __INT_MAX__)
-			terminate(FT_ARG_ERR);
+			terminate(stk, FT_ARG_ERR);
 		str++;
 	}
 	num *= sign;
 	if (num > __INT_MAX__ || num < -__INT_MAX__ - 1)
-		terminate(FT_ARG_ERR);
-	check_duplicate(num, stk->a);
+		terminate(stk, FT_ARG_ERR);
+	check_duplicate(num, stk);
 	add_to_end_a((int)num, stk);
 	return (str);
 }
@@ -96,7 +96,7 @@ int     parse_arguments(int argc, char **argv, t_stk *stk)
 		while (ft_isspace(*ptr))
 			ptr++;
 		if (*ptr == '\0')
-			terminate(FT_ARG_ERR);
+			terminate(stk, FT_ARG_ERR);
 		while (*ptr != '\0')
 		{
 			while (ft_isspace(*ptr))

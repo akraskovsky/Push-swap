@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 15:57:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/02 20:36:21 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/03 16:06:05 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include "ft_printf.h"
 
 # define FT_MEM_ERR "Memory allocation error"
-# define FT_ARG_ERR "Incorrect arguments!"
-# define FT_OPER "Bad operation"
+# define FT_ARG_ERR "Error"
+# define FT_OPER "Error"
 
 typedef struct 			s_stack
 {
@@ -55,7 +55,7 @@ typedef struct			s_cmd
 
 int     	main(int argc, char **argv);
 int			parse_arguments(int argc, char **argv, t_stk *stk);
-void		terminate(char *message);
+void		terminate(t_stk *stk, char *message);
 t_stk		*init_stk();
 void		print_stack(t_stk *stk);
 void		run_commands(t_stk *stk);
@@ -92,5 +92,7 @@ void		move_down_down(t_stk *stk, t_shift shift);
 void		move_down_up(t_stk *stk, t_shift shift);
 void		move_up_down(t_stk *stk, t_shift shift);
 void		stk_norm(t_stk *stk);
+void		free_stack(t_stack *stack);
+void		free_stk(t_stk *stk);
 
 #endif
