@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 15:57:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/03 21:00:33 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/04 20:14:06 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,12 @@
 # define FT_MEM_ERR "Memory allocation error"
 # define FT_ARG_ERR "Error"
 # define FT_OPER 	"Error"
-# define WIN_X 		1000
-# define WIN_Y 		1000
+# define WIN_X 		1150
+# define WIN_Y 		1100
+# define SPACE_X	50
+# define SPACE_Y	60
+# define STK_W		500
+# define STK_H		1000
 # define COL_TXT 	0x038C66
 # define COL_BARS 	0x038C66
 # define COL_ACT 	0x03FFFF
@@ -37,15 +41,23 @@ typedef struct 			s_stack
 	struct s_stack		*prev;
 }						t_stack;
 
+typedef struct 			s_cmd
+{
+	char				*cmd;
+	struct s_cmd		*next;
+}						t_cmd;
+
 typedef struct 			s_stk
 {
 	t_stack				*a;
 	t_stack				*b;
+	t_cmd				*commands;
 	size_t				len_a;
 	size_t				len_b;
 	int					visual;
 	void				*mlx;
 	void				*win;
+	int					step;
 }						t_stk;
 
 typedef	struct 			s_shift
@@ -54,16 +66,10 @@ typedef	struct 			s_shift
 	size_t				b;
 }						t_shift;
 
-typedef struct			s_cmd
-{
-	char				*cmd;
-	struct s_commands	*next;
-	struct s_commands	*prev;
-}						t_cmd;
-
 int     	main(int argc, char **argv);
 int			parse_arguments(int argc, char **argv, t_stk *stk);
 void		terminate(t_stk *stk, char *message);
+void		ft_finish(t_stk *stk);
 t_stk		*init_stk();
 void		print_stack(t_stk *stk);
 void		run_commands(t_stk *stk);
@@ -103,5 +109,10 @@ void		stk_norm(t_stk *stk);
 void		free_stack(t_stack *stack);
 void		free_stk(t_stk *stk);
 void		init_visual(t_stk *stk);
+int			draw_stacks(t_stk *stk);
+int			key_pressed(int key, t_stk *stk);
+void		push_cmd(t_stk *stk, char *cmd);
+char		*pull_cmd(t_stk *stk);
+int			start_commands(t_stk *stk);
 
 #endif

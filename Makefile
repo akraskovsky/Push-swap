@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/13 15:07:48 by fprovolo          #+#    #+#              #
-#    Updated: 2020/03/03 21:12:30 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/03/04 19:38:36 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,15 @@ FILES = parse_arguments\
 		commands\
 		commands1\
 		commands2\
+		run_commands\
 		stack_push_pull\
 		trim\
 		sort_short\
 		sort_main\
 		push_to_a\
 		graphics\
+		cmd_push_pull\
+		print_stack\
 
 LFT_PATH = ./libft/
 MLX_PATH = ./minilibx_macos/
