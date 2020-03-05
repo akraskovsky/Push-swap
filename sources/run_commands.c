@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 17:29:18 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/05 15:10:41 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/05 18:53:28 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	exec_command(t_stk *stk, char *cmd)
 {
-	ft_printf("cmd=%s\n", cmd);
 	if (ft_strequ(cmd, "sa"))
 		cmd_sa(stk, 0);
 	else if (ft_strequ(cmd, "sb"))
@@ -37,8 +36,9 @@ void	exec_command(t_stk *stk, char *cmd)
 		cmd_rrb(stk, 0);
 	else if (ft_strequ(cmd, "rrr"))
 		cmd_rrr(stk, 0);
-	else
-		terminate(stk, FT_OPER);
+	free(cmd);
+	// else
+	// 	terminate(stk, FT_OPER);
 	return ;
 }
 

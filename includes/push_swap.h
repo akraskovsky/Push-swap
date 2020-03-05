@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 15:57:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/05 14:42:02 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/05 18:38:30 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>  // for test !!!
 # include "libft.h"
 # include "ft_printf.h"
 # include "mlx.h"
@@ -105,6 +104,7 @@ void		sort_main(t_stk *stk);
 void		sort_3(t_stk *stk);
 void		sort_4(t_stk *stk);
 void		sort_5(t_stk *stk);
+int			min_position(t_stk *stk);
 size_t		find_match(t_stk *stk, int num);
 size_t		calc_commands(t_stk *stk, size_t shift_a, size_t shift_b);
 void		move_up_up(t_stk *stk, t_shift shift);
@@ -119,5 +119,6 @@ void		draw_line(t_stk *stk, int start_x, int start_y, int len, int color);
 int			key_pressed(int key, t_stk *stk);
 void		push_cmd(t_stk *stk, char *cmd);
 char		*pull_cmd(t_stk *stk);
+
 
 #endif

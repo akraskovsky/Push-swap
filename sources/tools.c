@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:44:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/05 10:17:11 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/05 18:49:56 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ void	free_stack(t_stack *stack)
 
 void	free_stk(t_stk *stk)
 {
+	char	*cmd;
+
 	if (stk)
 	{
 		if (stk->a)
@@ -69,7 +71,10 @@ void	free_stk(t_stk *stk)
 		if (stk->b)
 			free_stack(stk->b);
 		while (stk->commands)
-			pull_cmd(stk);
+		{
+			cmd = pull_cmd(stk);
+			free (cmd);
+		}
 		free(stk);
 	}
 }
