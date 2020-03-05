@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:44:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/04 16:11:13 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/05 10:17:11 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ t_stk	*init_stk()
 	stk->commands = NULL;
 	stk->len_a = 0;
 	stk->len_b = 0;
+	stk->len_cmd = 0;
+	stk->max_item = 0;
+	stk->min_item = 0;
 	stk->visual = 0;
 	stk->mlx = NULL;
 	stk->win = NULL;

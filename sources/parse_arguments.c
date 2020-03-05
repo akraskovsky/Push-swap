@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 17:12:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/03 16:18:28 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/05 12:00:07 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,5 @@ int     parse_arguments(int argc, char **argv, t_stk *stk)
 		}
 		i++;
 	}
-//	print_stack(stk);
 	return (0);
 }

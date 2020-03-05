@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 15:57:31 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/04 20:14:06 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/05 14:42:02 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,12 @@
 # define SPACE_Y	60
 # define STK_W		500
 # define STK_H		1000
-# define COL_TXT 	0x038C66
+# define COL_TXT 	0x00FFBB
 # define COL_BARS 	0x038C66
+# define COL_BIGHT 	0x08DD99
+# define COL_DARK 	0x024422
 # define COL_ACT 	0x03FFFF
+# define COL_BLK 	0x000000
 
 typedef struct 			s_stack
 {
@@ -54,6 +57,9 @@ typedef struct 			s_stk
 	t_cmd				*commands;
 	size_t				len_a;
 	size_t				len_b;
+	size_t				len_cmd;
+	int					min_item;
+	int					max_item;
 	int					visual;
 	void				*mlx;
 	void				*win;
@@ -108,11 +114,10 @@ void		move_up_down(t_stk *stk, t_shift shift);
 void		stk_norm(t_stk *stk);
 void		free_stack(t_stack *stack);
 void		free_stk(t_stk *stk);
-void		init_visual(t_stk *stk);
 int			draw_stacks(t_stk *stk);
+void		draw_line(t_stk *stk, int start_x, int start_y, int len, int color);
 int			key_pressed(int key, t_stk *stk);
 void		push_cmd(t_stk *stk, char *cmd);
 char		*pull_cmd(t_stk *stk);
-int			start_commands(t_stk *stk);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/10 14:48:35 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/04 17:30:25 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/05 15:00:50 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ int		main(int argc, char **argv)
 	if (ft_strequ(argv[1], "-v"))
 	{
 		stk->visual = 1;
+		argv++;
+		argc--;
+	}
+	if (ft_strequ(argv[1], "-t"))
+	{
+		stk->visual = 2;
 		argv++;
 		argc--;
 	}
