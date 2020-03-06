@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 13:44:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/05 18:49:56 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/06 16:56:17 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_finish(t_stk *stk)
 	exit(1);
 }
 
-t_stk	*init_stk()
+t_stk	*init_stk(void)
 {
 	t_stk	*stk;
 
@@ -39,9 +39,12 @@ t_stk	*init_stk()
 	stk->len_cmd = 0;
 	stk->max_item = 0;
 	stk->min_item = 0;
+	stk->z_shift = 0;
+	stk->scale = 1;
 	stk->visual = 0;
 	stk->mlx = NULL;
 	stk->win = NULL;
+	stk->step = 0;
 	return (stk);
 }
 
@@ -73,7 +76,7 @@ void	free_stk(t_stk *stk)
 		while (stk->commands)
 		{
 			cmd = pull_cmd(stk);
-			free (cmd);
+			free(cmd);
 		}
 		free(stk);
 	}

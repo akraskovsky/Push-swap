@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/04 13:29:18 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/04 13:51:24 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/06 16:47:40 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	push_cmd(t_stk *stk, char *cmd)
 {
 	t_cmd	*new;
 	t_cmd	*ptr;
-	
+
 	if (!(ft_strequ(cmd, "sa") || ft_strequ(cmd, "sb") || ft_strequ(cmd, "ss") \
 			|| ft_strequ(cmd, "pa") || ft_strequ(cmd, "pb") \
 			|| ft_strequ(cmd, "ra") || ft_strequ(cmd, "rb") \

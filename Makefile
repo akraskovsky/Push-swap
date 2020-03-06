@@ -6,7 +6,7 @@
 #    By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/13 15:07:48 by fprovolo          #+#    #+#              #
-#    Updated: 2020/03/04 19:38:36 by fprovolo         ###   ########.fr        #
+#    Updated: 2020/03/06 18:10:22 by fprovolo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -78,6 +78,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME1)
+	rm -rf $(NAME2)
 	make -C $(LFT_PATH) fclean
 
 re: fclean all

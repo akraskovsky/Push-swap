@@ -1,3 +1,0 @@
-
-	://github.com/SamLynnEvans/Push_swap/blob/master/README.md
-	lose(fd);

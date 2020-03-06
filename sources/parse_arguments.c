@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/13 17:12:15 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/05 12:00:07 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/06 16:50:25 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ static char		*parse_word(char *str, t_stk *stk)
 	return (str);
 }
 
-int     parse_arguments(int argc, char **argv, t_stk *stk)
+int				parse_arguments(int argc, char **argv, t_stk *stk)
 {
 	int		i;
 	char	*ptr;
-	
+
 	i = 1;
 	while (i < argc)
 	{

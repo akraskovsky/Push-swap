@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/21 17:12:01 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/28 18:54:10 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/06 21:56:23 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			check_sort(t_stk *stk)
 {
 	t_stack	*ptr;
 
-	if (stk->b)
+	if (!stk->a || stk->b)
 		return (0);
 	ptr = stk->a->next;
 	while (ptr != stk->a)
@@ -39,7 +39,8 @@ size_t		sorted_len(t_stack *start)
 	ptr = start->next;
 	while (ptr != start)
 	{
-		if (ptr->next != start && ptr->next->num > num && ptr->next->num < ptr->num)
+		if (ptr->next != start && ptr->next->num > num && \
+			ptr->next->num < ptr->num)
 		{
 			num = ptr->num;
 			ptr = ptr->next;
@@ -91,7 +92,8 @@ void		mark_to_push(t_stack *start)
 	ptr = start->next;
 	while (ptr != start)
 	{
-		if (ptr->next != start && ptr->next->num > num && ptr->next->num < ptr->num)
+		if (ptr->next != start && ptr->next->num > num && \
+			ptr->next->num < ptr->num)
 		{
 			ptr->index = 2;
 			num = ptr->num;

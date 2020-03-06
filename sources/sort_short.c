@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/26 20:28:38 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/05 18:38:30 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/06 17:02:06 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	sort_4(t_stk *stk)
 	if (stk->a->next->next->num < stk->a->num && \
 			stk->a->next->next->num < stk->a->next->num && \
 			stk->a->next->next->num < stk->a->next->next->next->num)
-	{	
+	{
 		cmd_ra(stk, 1);
 		cmd_ra(stk, 1);
 	}
@@ -74,6 +74,7 @@ int		min_position(t_stk *stk)
 void	sort_5(t_stk *stk)
 {
 	int		shift;
+
 	shift = min_position(stk);
 	if (shift == 1 || shift == 2)
 		cmd_ra(stk, 1);

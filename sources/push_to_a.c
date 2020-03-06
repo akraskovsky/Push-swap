@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 16:27:41 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/03/02 19:48:47 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/06 16:52:18 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	move_up_up(t_stk *stk, t_shift shift)
 {
 	size_t	n_rx;
 	size_t	n_rr;
-	
+
 	if (shift.a > shift.b)
 	{
 		n_rx = shift.a - shift.b;
@@ -43,7 +43,7 @@ void	move_down_down(t_stk *stk, t_shift shift)
 {
 	size_t	n_rrx;
 	size_t	n_rrr;
-	
+
 	if (stk->len_a - shift.a > stk->len_b - shift.b)
 	{
 		n_rrx = (stk->len_a - shift.a) - (stk->len_b - shift.b);
@@ -100,8 +100,8 @@ void	stk_norm(t_stk *stk)
 {
 	size_t	shift;
 	size_t	n_rra;
-	
 	t_stack	*ptr;
+
 	if (!(stk->a->num < stk->a->next->num && stk->a->num < stk->a->prev->num))
 	{
 		ptr = stk->a->next;

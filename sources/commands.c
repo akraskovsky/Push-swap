@@ -6,7 +6,7 @@
 /*   By: fprovolo <fprovolo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/20 14:17:17 by fprovolo          #+#    #+#             */
-/*   Updated: 2020/02/26 15:03:39 by fprovolo         ###   ########.fr       */
+/*   Updated: 2020/03/06 16:47:20 by fprovolo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	cmd_sa(t_stk *stk, int wr)
 {
 	int	num;
 	int	index;
-	
+
 	if (stk->a && stk->a->next != stk->a)
 	{
 		num = stk->a->num;
@@ -35,7 +35,7 @@ void	cmd_sb(t_stk *stk, int wr)
 {
 	int	num;
 	int	index;
-	
+
 	if (stk->b && stk->b->next != stk->b)
 	{
 		num = stk->b->num;
